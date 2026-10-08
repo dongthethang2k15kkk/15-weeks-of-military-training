@@ -1,0 +1,34 @@
+name: Kiem tra notebook
+
+# Chạy mọi notebook weekN/*.ipynb đang có trong repo, ở trạng thái chưa làm bài, để bắt lỗi
+# thiếu file, lỗi cú pháp, lỗi import trước khi học viên mở. Không bật AUTOGRADE vì bản
+# đẩy lên là bản đề, chưa có lời giải. Lời giải kiểm thử nằm ở tools/loi_giai_tuan1.py,
+# chạy trên máy người soạn.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  chay-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cai dat cong cu
+        run: pip install nbclient nbformat ipykernel matplotlib pandas numpy
+
+      - name: Chay cac notebook
+        run: |
+          shopt -s nullglob
+          for nb in week*/*.ipynb; do
+            echo "=== Chay $nb ==="
+            jupyter nbconvert --to notebook --execute "$nb" \
+              --output "/tmp/$(basename "$nb")" \
+              --ExecutePreprocessor.timeout=180
+          done

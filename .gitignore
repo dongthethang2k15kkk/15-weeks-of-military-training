@@ -1,0 +1,11 @@
+# Môi trường và file sinh ra
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Lời giải mẫu, chỉ để kiểm thử, không đẩy lên
+tools/loi_giai_tuan*.py
+
+# Tài liệu kế hoạch nội bộ, học viên đọc được repo public nên không đẩy lên
+docs/
