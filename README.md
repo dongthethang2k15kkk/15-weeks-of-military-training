@@ -1,4 +1,4 @@
-# 15 tuần huấn luyện — AI for Automobile (BK-AUTO)
+# 15 tuần khổ luyện — AI for Automobile (BK-AUTO)
 
 Khoá Python và AI cho người mới, học qua dữ liệu cảm biến của một chuyến xe.
 
