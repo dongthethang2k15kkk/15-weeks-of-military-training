@@ -11,16 +11,16 @@ Các tuần sau được thêm vào bảng khi đến tuần đó.
 ## Cách học
 
 1. Bấm nút "Open in Colab" của tuần hiện tại (cần đăng nhập Google).
-2. Chạy ô đầu tiên. Ô này tự tải các file của tuần đó về máy ảo Colab, không cần cài gì thêm.
-3. Đọc bảng cú pháp, chạy các ô ví dụ, rồi làm bài tập. Mỗi bài tập có một ô kiểm tra ngay bên dưới.
-4. Vào `File > Save a copy in Drive` để giữ bản nháp. Đóng tab khi chưa lưu thì bài làm trong phiên đó mất.
+2. Vào `File > Save a copy in Drive` ngay từ đầu, rồi làm bài trên bản trong Drive của bạn. Bản mở từ link là bản của repo, không lưu được bài làm.
+3. Chạy ô đầu tiên. Ô này tự tải các file của tuần đó về máy ảo Colab, không cần cài gì thêm.
+4. Đọc bảng cú pháp, chạy các ô ví dụ, rồi làm bài tập. Mỗi bài tập có một ô kiểm tra ngay bên dưới.
 
 Mỗi tuần chỉ cần mở một notebook. Học tuần mới không phải tải lại file của tuần cũ.
 
 ## Nộp bài
 
 1. Tạo repo của bạn từ template, chỉ làm một lần: bấm [Use this template](https://github.com/dongthethang2k15kkk/15-weeks-of-military-training/generate), đặt tên repo, chọn **Private**.
-2. Làm bài trên Colab. Khi xong, vào `File > Save a copy in GitHub`, chọn repo của bạn, đường dẫn đúng thư mục của tuần (ví dụ `week1/week_1.ipynb`), ghi commit message dạng `week1: hoan thanh bai tap`. Lần lưu đầu Colab hỏi quyền truy cập GitHub, chọn cho phép.
+2. Làm bài trên bản trong Drive của bạn. Khi xong, vào `File > Save a copy in GitHub` (dòng này chỉ có trên bản trong Drive, không có trên bản mở thẳng từ link), chọn repo của bạn, đường dẫn đúng thư mục của tuần (ví dụ `week1/week_1.ipynb`), ghi commit message dạng `week1: hoan thanh bai tap`. Lần lưu đầu Colab hỏi quyền truy cập GitHub, chọn cho phép.
 3. Mở tab **Actions** của repo. GitHub chạy lại notebook của bạn và chấm: dấu xanh là mọi bài đạt, dấu đỏ là còn bài sai, bấm vào để xem bài nào.
 
 ## Dữ liệu
