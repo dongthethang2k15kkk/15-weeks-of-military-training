@@ -26,15 +26,3 @@ Mỗi tuần chỉ cần mở một notebook. Học tuần mới không phải t
 ## Dữ liệu
 
 Thư mục [data/](data/) là dữ liệu **mô phỏng** của một chuyến xe dài 180 giây, gồm bốn loại cảm biến: LiDAR đo khoảng cách phía trước, GPS (NMEA), OBD-II và IMU. Mô tả từng cột nằm trong [data/README.md](data/README.md).
-
-## Cấu trúc repo
-
-```
-weekN/        notebook của từng tuần
-tests/        bộ chấm bài: runner.py dùng chung, test_weekN.py của từng tuần,
-              tien_ich_du_lieu.py (hàm đọc và vẽ dữ liệu chuyến xe)
-data/         dữ liệu cảm biến
-assets/       hình dùng trong notebook
-src/          nguồn .py của notebook (jupytext)
-tools/        script sinh dữ liệu
-```
