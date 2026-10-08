@@ -1,9 +1,13 @@
-name: Kiem tra notebook
+name: Cham notebook
 
-# Chạy mọi notebook weekN/*.ipynb đang có trong repo, ở trạng thái chưa làm bài, để bắt lỗi
-# thiếu file, lỗi cú pháp, lỗi import trước khi học viên mở. Không bật AUTOGRADE vì bản
-# đẩy lên là bản đề, chưa có lời giải. Lời giải kiểm thử nằm ở tools/loi_giai_tuan1.py,
-# chạy trên máy người soạn.
+# Chạy mọi notebook weekN/*.ipynb đang có trong repo.
+#
+#  - Ở repo gốc của khoá: chạy không chấm (AUTOGRADE=0), chỉ để bắt lỗi thiếu file, lỗi
+#    cú pháp, lỗi import. Bản đẩy lên là bản đề, chưa có lời giải nên chấm nghiêm sẽ đỏ.
+#  - Ở repo của học viên (tạo từ template): chạy chấm nghiêm (AUTOGRADE=1), bài sai thì
+#    workflow đỏ. Kết quả xem ở tab Actions.
+#
+# Lời giải kiểm thử của người soạn nằm ở tools/loi_giai_tuan1.py, chạy trên máy người soạn.
 
 on:
   push:
@@ -13,6 +17,8 @@ on:
 jobs:
   chay-notebook:
     runs-on: ubuntu-latest
+    env:
+      AUTOGRADE: ${{ github.repository != 'dongthethang2k15kkk/15-weeks-of-military-training' && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -26,6 +32,7 @@ jobs:
       - name: Chay cac notebook
         run: |
           shopt -s nullglob
+          echo "AUTOGRADE=$AUTOGRADE"
           for nb in week*/*.ipynb; do
             echo "=== Chay $nb ==="
             jupyter nbconvert --to notebook --execute "$nb" \

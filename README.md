@@ -1,6 +1,6 @@
 # 15 tuần khổ luyện — AI for Automobile (BK-AUTO)
 
-Khoá Python và AI cho người mới, học qua dữ liệu cảm biến của một chuyến xe.
+Khoá Python và AI — AI for Automobile (BK-AUTO)
 
 | Tuần | Chủ đề | Mở trên Colab |
 |---|---|---|
@@ -13,9 +13,15 @@ Các tuần sau được thêm vào bảng khi đến tuần đó.
 1. Bấm nút "Open in Colab" của tuần hiện tại (cần đăng nhập Google).
 2. Chạy ô đầu tiên. Ô này tự tải các file của tuần đó về máy ảo Colab, không cần cài gì thêm.
 3. Đọc bảng cú pháp, chạy các ô ví dụ, rồi làm bài tập. Mỗi bài tập có một ô kiểm tra ngay bên dưới.
-4. Vào `File > Save a copy in Drive` để giữ bài đã làm. Đóng tab khi chưa lưu thì bài làm trong phiên đó mất.
+4. Vào `File > Save a copy in Drive` để giữ bản nháp. Đóng tab khi chưa lưu thì bài làm trong phiên đó mất.
 
 Mỗi tuần chỉ cần mở một notebook. Học tuần mới không phải tải lại file của tuần cũ.
+
+## Nộp bài
+
+1. Tạo repo của bạn từ template, chỉ làm một lần: bấm [Use this template](https://github.com/dongthethang2k15kkk/15-weeks-of-military-training/generate), đặt tên repo, chọn **Private**.
+2. Làm bài trên Colab. Khi xong, vào `File > Save a copy in GitHub`, chọn repo của bạn, đường dẫn đúng thư mục của tuần (ví dụ `week1/week_1.ipynb`), ghi commit message dạng `week1: hoan thanh bai tap`. Lần lưu đầu Colab hỏi quyền truy cập GitHub, chọn cho phép.
+3. Mở tab **Actions** của repo. GitHub chạy lại notebook của bạn và chấm: dấu xanh là mọi bài đạt, dấu đỏ là còn bài sai, bấm vào để xem bài nào.
 
 ## Dữ liệu
 
@@ -31,20 +37,4 @@ data/         dữ liệu cảm biến
 assets/       hình dùng trong notebook
 src/          nguồn .py của notebook (jupytext)
 tools/        script sinh dữ liệu
-```
-
-## Dành cho người chỉnh sửa nội dung
-
-Notebook được sinh ra từ file nguồn `.py` trong `src/` bằng [jupytext](https://jupytext.readthedocs.io/). Sửa nội dung thì sửa file `.py`, không sửa trực tiếp `.ipynb`:
-
-```bash
-pip install jupytext
-python -m jupytext --to ipynb src/week_1.py -o week1/week_1.ipynb
-```
-
-Sinh lại dữ liệu (cùng seed nên ra đúng các file hiện có):
-
-```bash
-pip install numpy matplotlib
-python tools/tao_du_lieu.py
 ```

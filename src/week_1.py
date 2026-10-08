@@ -1186,7 +1186,16 @@ ket_qua = [
 print(f"\nTONG KET TUAN 1: {sum(ket_qua)}/{len(ket_qua)} bai dat.")
 
 # %% [markdown]
-# ### Lưu bài
+# ### Lưu bài và nộp bài
 #
-# Vào `File > Save a copy in Drive` để giữ lại bài đã làm. Đóng tab khi chưa lưu thì bài
-# làm trong phiên này mất.
+# Vào `File > Save a copy in Drive` để giữ bản nháp. Đóng tab khi chưa lưu thì bài làm
+# trong phiên này mất.
+#
+# Để nộp bài:
+#
+# 1. Tạo repo của bạn từ template tại
+#    https://github.com/dongthethang2k15kkk/15-weeks-of-military-training/generate
+#    (chỉ làm một lần, nên chọn Private).
+# 2. Vào `File > Save a copy in GitHub`, chọn repo của bạn, đường dẫn
+#    `week1/week_1.ipynb`, ghi commit message dạng `week1: hoan thanh bai tap`.
+# 3. Mở tab Actions của repo: dấu xanh là mọi bài đạt, dấu đỏ là còn bài sai.
