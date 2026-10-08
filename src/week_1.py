@@ -360,9 +360,10 @@ print(gia_goc)
 # Một nhóm xe sạc chung một trụ. Trạm tính thêm phí dịch vụ bằng phần trăm trên tiền
 # điện. Có hai lượt sạc, mỗi lượt cho sẵn `tong_tien_sac`, `phan_tram_phi_dv`, `so_xe`.
 #
-# Công thức:
+# Công thức, trong đó $m$ là `moi_xe_tra`, $T$ là `tong_tien_sac`, $p$ là
+# `phan_tram_phi_dv` và $n$ là `so_xe`:
 #
-# $$\text{moi\_xe\_tra} = \frac{\text{tong\_tien\_sac} \times \left(1 + \dfrac{\text{phan\_tram\_phi\_dv}}{100}\right)}{\text{so\_xe}}$$
+# $$m = \frac{T \times \left(1 + \dfrac{p}{100}\right)}{n}$$
 #
 # Làm tròn 2 chữ số bằng `round()`. Với mỗi lượt, gán `moi_xe_tra_*` theo công thức
 # này.
@@ -389,8 +390,9 @@ kiem_tra_2_1(moi_xe_tra_1, moi_xe_tra_2)
 # Xe đã đi được {quang_duong} mét trong {thoi_gian} giây.
 # ```
 #
-# Trong đó $\text{quang\_duong} = \text{van\_toc\_bc} \times \text{thoi\_gian\_bc}$,
-# không làm tròn. Dấu chấm cuối câu và dấu tiếng Việt phải khớp chính xác.
+# Trong đó quãng đường $s = v \times t$, với $v$ là `van_toc_bc` và $t$ là
+# `thoi_gian_bc`, không làm tròn. Dấu chấm cuối câu và dấu tiếng Việt phải khớp chính
+# xác.
 #
 # Ví dụ: `van_toc_bc = 10.0`, `thoi_gian_bc = 5` cho chuỗi
 # `"Xe đã đi được 50.0 mét trong 5 giây."`.
@@ -438,10 +440,11 @@ kiem_tra_2_3(gio, phut, giay)
 #
 # Gọi $x$ là chuỗi đó đã ép sang số. Công thức đổi sang độ thập phân:
 #
-# $$\text{do} = \left\lfloor \frac{x}{100} \right\rfloor, \qquad \text{phut} = x \bmod 100, \qquad \text{vi\_do} = \text{do} + \frac{\text{phut}}{60}$$
+# $$\text{do} = \left\lfloor \frac{x}{100} \right\rfloor, \qquad \text{phut} = x \bmod 100, \qquad \varphi = \text{do} + \frac{\text{phut}}{60}$$
 #
-# Trong đó $\lfloor \cdot \rfloor$ là làm tròn xuống, $\bmod$ là phần dư của phép chia.
-# Gán `vi_do` (float) từ `chuoi_vi_do`.
+# Trong đó $\lfloor \cdot \rfloor$ là làm tròn xuống, $\bmod$ là phần dư của phép chia,
+# $\varphi$ là vĩ độ thập phân. Gán `vi_do` (float) bằng $\varphi$, tính từ
+# `chuoi_vi_do`.
 #
 # Ví dụ: `"2103.00000"` cho độ 21, phút 3, `vi_do = 21.05`.
 
@@ -463,13 +466,14 @@ kiem_tra_2_4(vi_do)
 # Gọi $x$ là phần nguyên của chuỗi đã ép sang số (ở đây là `170030`). Tách giờ, phút,
 # giây UTC:
 #
-# $$\text{gio\_utc} = \left\lfloor \frac{x}{10000} \right\rfloor, \qquad \text{phut} = \left\lfloor \frac{x}{100} \right\rfloor \bmod 100, \qquad \text{giay} = x \bmod 100$$
+# $$h = \left\lfloor \frac{x}{10000} \right\rfloor, \qquad \text{phut} = \left\lfloor \frac{x}{100} \right\rfloor \bmod 100, \qquad \text{giay} = x \bmod 100$$
 #
 # Giờ Việt Nam chênh UTC 7 tiếng, phút và giây giữ nguyên:
 #
-# $$\text{gio\_vn} = (\text{gio\_utc} + 7) \bmod 24$$
+# $$h_{\text{VN}} = (h + 7) \bmod 24$$
 #
-# Gán `gio_vn`, `phut_vn`, `giay_vn` (cả ba là `int`).
+# Gán `gio_vn` bằng $h_{\text{VN}}$, `phut_vn` bằng phút, `giay_vn` bằng giây (cả ba là
+# `int`).
 #
 # Ví dụ: `"084512.00"` cho 15 giờ 45 phút 12 giây. `"182000.00"` cho 1 giờ 20 phút
 # 0 giây.
@@ -803,9 +807,9 @@ kiem_tra_4_3(doc_khoang_cach)
 # độ), hướng `N`, `S`, `E`, `W` nằm ở ô kế bên. Gọi $x$ là chuỗi toạ độ đã ép sang
 # số:
 #
-# $$\text{do} = \left\lfloor \frac{x}{100} \right\rfloor, \qquad \text{phut} = x \bmod 100, \qquad \text{do\_thap\_phan} = \text{do} + \frac{\text{phut}}{60}$$
+# $$\text{do} = \left\lfloor \frac{x}{100} \right\rfloor, \qquad \text{phut} = x \bmod 100, \qquad \theta = \text{do} + \frac{\text{phut}}{60}$$
 #
-# Viết hàm `nmea_sang_do(chuoi, huong)` trả về độ thập phân. Hướng `"S"` và `"W"` thì
+# Viết hàm `nmea_sang_do(chuoi, huong)` trả về độ thập phân $\theta$. Hướng `"S"` và `"W"` thì
 # trả về số âm. Chuỗi rỗng (lúc mất fix GPS, ô toạ độ để trống) thì trả về `None`.
 #
 # Ví dụ:
