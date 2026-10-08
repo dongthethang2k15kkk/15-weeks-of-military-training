@@ -1,6 +1,6 @@
 # 15 tuần khổ luyện — AI for Automobile (BK-AUTO)
 
-Khoá Python và AI for Automobile (BK-AUTO)
+Khoá Python và AI for Automobile
 
 | Tuần | Chủ đề | Mở trên Colab |
 |---|---|---|
